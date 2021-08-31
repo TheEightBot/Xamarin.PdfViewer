@@ -25,6 +25,12 @@ namespace PdfViewer.Droid
         {
             base.OnElementChanged(e);
 
+            if(e.OldElement != null)
+            {
+                e.OldElement.LoadStream -= Element_LoadStream;
+                e.OldElement.LoadFile -= Element_LoadFile;
+            }
+
             if(e.NewElement != null)
             {
                 var pdfView = new PDFView(this.Context, null);
@@ -32,10 +38,9 @@ namespace PdfViewer.Droid
 
                 SetNativeControl(pdfView);
 
-                Element.LoadStream += Element_LoadStream;
-                Element.LoadFile += Element_LoadFile;
+                e.NewElement.LoadStream += Element_LoadStream;
+                e.NewElement.LoadFile += Element_LoadFile;
             }
-
         }
 
         private void Element_LoadFile(object sender, string e)

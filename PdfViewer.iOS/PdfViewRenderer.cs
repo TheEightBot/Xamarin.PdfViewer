@@ -52,7 +52,7 @@ namespace PdfViewer.iOS
             base.OnElementPropertyChanged(sender, e);
         }
 
-        private async Task LoadFromStream(Stream stream)
+        private Task LoadFromStream(Stream stream)
         {
             if (Control != null && stream != null && stream != System.IO.Stream.Null)
             {
@@ -62,6 +62,8 @@ namespace PdfViewer.iOS
                     stream?.Dispose();
                 }
             }
+
+            return Task.CompletedTask;
         }
 
         private void LoadFromFile(string filePath)
