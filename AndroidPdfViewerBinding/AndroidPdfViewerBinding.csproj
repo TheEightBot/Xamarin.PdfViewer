@@ -53,7 +53,7 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
-    <LibraryProjectZip Include="Jars\android-pdf-viewer-3.2.0-beta.1.aar" />
+    <LibraryProjectZip Include="Jars\android-pdf-viewer-release.aar" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PdfiumBinding\PdfiumBinding.csproj">
